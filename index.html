@@ -2,19 +2,50 @@
 <html>
 <head>
 	<link rel="stylesheet" href="node_modules/angular-material/angular-material.css"></link>
+	<link rel="stylesheet" href="app.css">
 </head>
-<body ng-app="Myapp">
-	<script src="node_modules/angular/angular.min.js"></script>
-	<script src="node_modules/angular-animate/angular-animate.js"></script>
-	<script src="node_modules/angular-aria/angular-aria.min.js"></script>
-	<script src="node_modules/angular-material/angular-material.min.js"></script>
-	<script type="text/javascript">
-	   angular.module('Myapp',['ngMaterial'])
-	   .run(function(){
+<body ng-app="Myapp" layout="column" ng-controller="UserController as ul">
+	<md-toolbar>
+	<h1>Angular Material Starter</h1>
+</md-toolbar>
 
-	   	console.log("My app is ready !");
+<div class="container" layout="row" flex>
 
-	   });
-	</script>
+	<md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
+	    <md-list>
+	      <md-list-item ng-repeat="u in ul.users">
+	        <md-button ng-click="ul.selectUser(u)">
+	           <img ng-src="{{u.avatar}}" class="avatar">
+	           {{u.name}}
+	        </md-button>
+	      </md-list-item>
+	      
+	    </md-list>
+    </md-sidenav>
+
+     <md-content id="content" class="" flex>
+      <img ng-src="{{ul.selected.avatar}}" class="avatar">
+      <h2>{{ ul.selected.name }}</h2>
+      <p>{{ ul.selected.content }}</p>
+       
+     </md-content>
+</div>
+
+
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-animate/angular-animate.js"></script>
+<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+<script src="node_modules/angular-material/angular-material.min.js"></script>
+<script src="js/Users.js"></script>
+<script src="js/UserService.js"></script>
+<script src="js/UserController.js"></script>
+<script type="text/javascript">
+angular.module('Myapp',['ngMaterial','users'])
+.run(function(){
+
+
+});
+</script>
+
 </body>
 </html>
