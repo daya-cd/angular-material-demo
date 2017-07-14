@@ -36,7 +36,7 @@
       },
       {
         name: 'Dhinesh',
-        avatar: 'images/2.png',
+        avatar: 'images/3.png',
         content: 'Webtwo ipsum dolor sit amet, eskobo chumby doostang bebo. Bubbli greplin stypi prezi mzinga heroku wakoopa, shopify airbnb dogster dopplr gooru jumo, reddit plickers edmodo stypi zillow etsy.'
       },
      {
